@@ -1,0 +1,81 @@
+<html>
+
+<head>
+    <title>Game Loop
+    </title>
+    <Style>
+        * {
+            margin: 0;
+            overflow: hidden;
+        }
+    </Style>
+</head>
+
+<body>
+    <canvas id="canv">
+
+    </canvas>
+    <script src="../engine/Engine.js"></script>
+    <script src="../engine/Vector2.js"></script>
+    <script src="../engine/Input.js"></script>
+    <script>
+
+        let position = new Vector2(50, 50)
+
+
+        function gameLoop() {
+            update()
+            draw()
+            requestAnimationFrame(gameLoop)
+        }
+
+        function update() {
+            console.log(Input.keysDown)
+
+            if (Input.keysDown.includes("ArrowRight")) {
+                position.x = position.x + 1
+            }
+            if (Input.keysDown.includes("ArrowLeft")) {
+                position.x = position.x - 1
+            }
+            if (Input.keysDown.includes("ArrowUp")) {
+                position.y = position.y - 1
+            }
+            if (Input.keysDown.includes("ArrowDown")) {
+                position.y = position.y + 1
+            }
+        }
+
+        function draw(ctx) {
+            //signal to context to draw smth
+            ctx.save()
+
+            //declare center
+            ctx.translate(position.x, position.y)
+
+            ctx.lineTo(0, -40)
+            ctx.lineTo(-10, -20)
+            ctx.lineTo(-25, -20)
+            ctx.lineTo(-10, 2)
+            ctx.lineTo(-15, 20)
+            ctx.lineTo(0, 10)
+            ctx.lineTo(15, 20)
+            ctx.lineTo(10, 2)
+            ctx.lineTo(25, -20)
+            ctx.lineTo(10, -20)
+
+            ctx.fillStyle = "cyan"
+            ctx.fill()
+
+            //signal finished
+            ctx.restore()
+        }
+
+        requestAnimationFrame(gameLoop)
+
+
+        Engine.start()
+    </script>
+</body>
+
+</html>
