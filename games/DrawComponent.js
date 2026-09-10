@@ -1,4 +1,4 @@
-class DrawComponent extends Component {
+/*  class DrawComponent extends Component {
     draw(ctx) {
 
         let position = this.transform.position
@@ -28,4 +28,4 @@ class DrawComponent extends Component {
         //signal finished
         ctx.restore()
     }
-}
+}*/
