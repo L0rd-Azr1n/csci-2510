@@ -4,6 +4,7 @@ class Input {
     static keydown(event) {
         if (!Input.keysDown.includes(event.code))
             Input.keysDown.push(event.code)
+        console.log(this.keysdown)
     }
 
     static keyup(event) {

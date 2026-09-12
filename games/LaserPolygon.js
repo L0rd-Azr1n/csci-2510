@@ -1,5 +1,5 @@
 
-class LaserPolygon extends GameObject {
+/*class LaserPolygon extends GameObject {
     draw(ctx) {
 
         let position = this.transform.position
@@ -23,4 +23,4 @@ class LaserPolygon extends GameObject {
         //signal finished
         ctx.restore()
     }
-}
+}*/
