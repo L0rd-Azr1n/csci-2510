@@ -34,7 +34,7 @@ class Engine {
     static draw() {
 
         Engine.canvas.width = window.innerWidth
-        Engine.canvas.Height = window.innerHeight
+        Engine.canvas.height = window.innerHeight
         //draw(Engine.ctx)
 
         Engine.currentScene.draw(Engine.ctx)

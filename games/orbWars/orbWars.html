@@ -1,0 +1,40 @@
+<html>
+
+<head><title>Orb Wars!
+    </title>
+    <Style>
+        * {
+            margin: 0;
+            overflow: hidden;
+        }
+    </Style>
+
+</head>
+
+<body>
+    <canvas id="canv"></canvas>
+    <script src="../../engine/Engine.js"></script>
+    <script src="../../engine/Vector2.js"></script>
+    <script src="../../engine/Input.js"></script>
+    <script src="../../engine/Component.js"></script>
+    <script src="../../engine/GameObject.js"></script>
+    <script src="../../engine/Scene.js"></script>
+    <script src="../../engine/components/Transform.js"></script>
+    <script src="../../engine/components/Polygon.js"></script>
+
+
+    <script src="gameObjects/OrbObject.js"></script>
+    <script src="scenes/TestScene.js"></script>
+    <script src="components/wasdMovementComponent.js"></script>
+    
+    
+    <script>
+
+        Engine.currentScene = new TestScene()
+        Engine.start()
+        
+    </script>
+
+</body>
+
+</html>
