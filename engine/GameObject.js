@@ -1,13 +1,17 @@
 class GameObject {
     components = []
+
     markForDestroy = false
+
+    name
 
     get transform() {
         return this.components[0]
     }
 
-    constructor() {
+    constructor(name) {
         this.addComponent(new Transform())
+        this.name = name
 
     }
 
@@ -38,5 +42,10 @@ class GameObject {
 
     destroy() {
         this.markForDestroy = true
+    }
+
+    static find(name) {
+        //return Engine.currentScene.gameObjects.find(function(go){return go.name == name})
+        return Engine.currentScene.gameObjects.find(go => go.name == name)
     }
 }
