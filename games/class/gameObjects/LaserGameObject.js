@@ -3,6 +3,6 @@ class LaserGameObject extends GameObject {
         super("Laser")
         this.addComponent(new LaserController())
         this.addComponent(new Polygon(), {
-            fillStyle: "red", points:Assets.Rectangle, scale:0.25})
+            fillStyle: "red", points:Assets.rectangle, scale:0.25})
     }
 }

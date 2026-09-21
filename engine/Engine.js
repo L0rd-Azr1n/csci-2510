@@ -30,7 +30,6 @@ class Engine {
     }
 
     static update() {
-        //update()
         Engine.currentScene.update()
     }
 
@@ -38,7 +37,6 @@ class Engine {
 
         Engine.canvas.width = window.innerWidth
         Engine.canvas.height = window.innerHeight
-        //draw(Engine.ctx)
 
         Engine.currentScene.draw(Engine.ctx)
     }

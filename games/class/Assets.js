@@ -12,7 +12,7 @@ class Assets {
                 new Vector2(10, -20)
             ]
 
-    static Rectangle = [
+    static rectangle = [
                 new Vector2(-5, -20),
                 new Vector2(-5, 0),
                 new Vector2(5, 0),
