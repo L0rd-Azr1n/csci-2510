@@ -5,13 +5,12 @@ class Polygon extends Component {
 
     draw(ctx) {
 
-        let position = this.transform.position
 
         //signal to context to draw smth
         ctx.save()
 
         //declare center, size and tilt
-        ctx.translate(position.x, position.y)
+        ctx.translate(this.transform.position.x, this.transform.position.y)
         ctx.scale(this.transform.scale.x, this.transform.scale.y)
         ctx.rotate(this.transform.rotation)
 

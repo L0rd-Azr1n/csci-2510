@@ -4,5 +4,6 @@ class StaticCirle extends GameObject {
         this.addComponent(new Polygon(), {
             fillStyle: "blue", points:Assets.circle
         })
+        this.transform.scale = new Vector2(10, 10)
     }
 }

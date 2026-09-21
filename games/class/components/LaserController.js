@@ -17,7 +17,9 @@ class LaserController extends Component {
 
             if(distance < 20) {
                 this.gameObject.destroy()
-                enemyGameObject.destroy()
+                //enemyGameObject.destroy()
+                let healthComponent = enemyGameObject.getComponent(Health)
+                healthComponent -= 1
             }
         }
 

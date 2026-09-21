@@ -5,6 +5,5 @@ class OrbObject extends GameObject {
         this.addComponent(new Polygon(), {
             fillStyle: "blue", points:Assets.circle         
         })
-
     }
 }
