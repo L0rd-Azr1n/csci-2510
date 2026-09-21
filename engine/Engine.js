@@ -20,8 +20,11 @@ class Engine {
     }
 
     static gameLoop() {
+        
         Engine.update()
         Engine.draw()
+
+        Time.update()
 
         requestAnimationFrame(Engine.gameLoop)
     }
@@ -34,7 +37,7 @@ class Engine {
     static draw() {
 
         Engine.canvas.width = window.innerWidth
-        Engine.canvas.Height = window.innerHeight
+        Engine.canvas.height = window.innerHeight
         //draw(Engine.ctx)
 
         Engine.currentScene.draw(Engine.ctx)

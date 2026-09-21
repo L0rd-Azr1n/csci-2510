@@ -1,9 +1,5 @@
-class MainGameObject extends GameObject {
-    constructor() {
-        super()
-        this.addComponent(new UpdateComponent())
-        this.addComponent(new Polygon(), {
-            fillStyle: "cyan", points: [
+class Assets {
+    static star = [
                 new Vector2(0, -40),
                 new Vector2(-10, -20),
                 new Vector2(-25, -20),
@@ -13,7 +9,13 @@ class MainGameObject extends GameObject {
                 new Vector2(15, 20),
                 new Vector2(12, -2),
                 new Vector2(25, -20),
-                new Vector2(10, -20)]
-        })
-    }
+                new Vector2(10, -20)
+            ]
+
+    static Rectangle = [
+                new Vector2(-5, -20),
+                new Vector2(-5, 0),
+                new Vector2(5, 0),
+                new Vector2(5, -20)
+            ]
 }
