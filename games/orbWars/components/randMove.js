@@ -22,7 +22,7 @@ class randMove extends Component {
                 this.transform.position.y = this.transform.position.y - Time.deltaTime * this.speed
                 break;
             case 1:
-                //NW
+                //NE
                 this.transform.position.x += Time.deltaTime * this.speed
                 this.transform.position.y -= Time.deltaTime * this.speed
                 break;
