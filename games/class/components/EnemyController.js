@@ -10,8 +10,10 @@ class EnemyController extends Component {
         }
         if (this.transform.position.x < 100)
             this.direction = 1
-        if(this.gameObject.getComponent(Health).health <= 0) {
+
+        if(this.gameObject.getComponent(Health).health <= 0)
             this.gameObject.destroy()
-        }
+
+        //console.log(GameObject.find("Enemy").health)
     }
 }
