@@ -1,4 +1,4 @@
-class locatePlayerComponent extends Component {
+class LocatePlayerComponent extends Component {
     speed = 100
     
     update() {

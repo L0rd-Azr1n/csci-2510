@@ -1,4 +1,4 @@
-class randMove extends Component {
+class RandMove extends Component {
     speed = 1
     direction = 0
     turnLength = 30

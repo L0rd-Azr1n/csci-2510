@@ -12,7 +12,7 @@ class TestScene extends Scene {
 
     this.instantiate(new ChaserObject(), new Vector2(500, 500))
 
-    this.instantiate(new randMoveOrbObject, new Vector2(250, 700))
+    this.instantiate(new RandMoveOrbObject, new Vector2(250, 700))
 
     this.instantiate(new WeaponObject(), new Vector2(500, 600))
 

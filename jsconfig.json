@@ -1,8 +1,10 @@
 {
     "compilerOptions": {
         "checkJs": true,
-        "noImplicitAny": false,
-        "experimentalDecorators": true,
+        "noEmit": true,
+        "strict": false,
+        // "noImplicitAny": false,
+        // "experimentalDecorators": true,
         "lib": [
             "esnext",
             "dom"
@@ -10,6 +12,6 @@
         "target":"esnext",
     },
     "exclude": [
-        "games/class", "games/orbWars"
+        "./games/"
     ]
 }

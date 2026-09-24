@@ -1,9 +1,9 @@
-class randMoveOrbObject extends GameObject {
+class RandMoveOrbObject extends GameObject {
     constructor() {
         super("Jitter")
         this.addComponent(new Polygon(), {
             fillStyle:"Green", points:Assets.circle
         })
-        this.addComponent(new randMove(), {speed: 100})
+        this.addComponent(new RandMove(), {speed: 100})
     }
 }

@@ -13,39 +13,51 @@
 
 <body>
     <canvas id="canv"></canvas>
-    <script src="../../engine/Engine.js"></script>
-    <script src="../../engine/Vector2.js"></script>
-    <script src="../../engine/Input.js"></script>
+
+
     <script src="../../engine/Component.js"></script>
+    <script src="../../engine/Engine.js"></script>
     <script src="../../engine/GameObject.js"></script>
+    <script src="../../engine/Input.js"></script>
     <script src="../../engine/Scene.js"></script>
+    <script src="../../engine/SceneManager.js"></script>
+    <script src="../../engine/Time.js"></script>
+    <script src="../../engine/Vector2.js"></script>
+
     <script src="../../engine/components/Transform.js"></script>
     <script src="../../engine/components/Polygon.js"></script>
     <script src="../../engine/components/TextLabel.js"></script>
-    <script src="../../engine/Time.js"></script>
+
 
     <script src="Assets.js"></script>
+    <script src="Globals.js"></script>
 
+    
     <script src="scenes/TestScene.js"></script>
+    <script src="scenes/MenuScene.js"></script>
 
     <script src="gameObjects/BackgroundObject.js"></script>
-    <script src="gameObjects/OrbObject.js"></script>
-    <script src="gameObjects/StaticCircle.js"></script>
     <script src="gameObjects/ChaserObject.js"></script>
-    <script src="gameObjects/randMoveOrbObject.js"></script>
-    <script src="gameObjects/WeaponObject.js"></script>
+    <script src="gameObjects/LevelControllerGameObject.js"></script>
+    <script src="gameObjects/OrbObject.js"></script>
+    <script src="gameObjects/RandMoveOrbObject.js"></script>
+    <script src="gameObjects/StartInstructionTextLabel.js"></script>
+    <script src="gameObjects/StaticCircle.js"></script>
     <script src="gameObjects/SupplyUIObject.js"></script>
+    <script src="gameObjects/TitleTextLabel.js"></script>
+    <script src="gameObjects/WeaponObject.js"></script>
 
+    <script src="components/LevelController.js"></script>
+    <script src="components/LocatePlayerComponent.js"></script>
+    <script src="components/PressStartComponent.js"></script>
+    <script src="components/RandMove.js"></script>
     <script src="components/wasdMovementComponent.js"></script>
-    <script src="components/locatePlayerComponent.js"></script>
-    <script src="components/randMove.js"></script>
     <script src="components/weaponController.js"></script>
     
     
     <script>
 
-        SceneManager.currentScene = new TestScene()
-        Engine.start()
+        Engine.start(MenuScene)
         
     </script>
 
