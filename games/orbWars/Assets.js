@@ -1,10 +1,10 @@
 class Assets {
 
     static rectangle = [
-        new Vector2(20, 0),
-        new Vector2(20, 10),
-        new Vector2(0, 10),
         new Vector2(0, 0),
+        new Vector2(20, 0),
+        new Vector2(20, -10),
+        new Vector2(0, -10),
     ]
 
     static circle = [
