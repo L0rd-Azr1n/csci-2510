@@ -5,6 +5,7 @@ class UpdateComponent extends Component {
     start() {
         this.timeSinceLastLaser = 0
     }
+
     update() {
         this.timeSinceLastLaser += 1
 
@@ -21,7 +22,7 @@ class UpdateComponent extends Component {
             this.transform.position.y = this.transform.position.y + Time.deltaTime * this.speed
         }
 
-        if (this.timeSinceLastLaser > 50) {
+        if (this.timeSinceLastLaser > 20) {
             this.timeSinceLastLaser = 0
             instantiate(new LaserGameObject(), this.transform.position.clone())
         }

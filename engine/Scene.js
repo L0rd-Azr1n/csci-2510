@@ -38,7 +38,7 @@ class Scene {
     draw(ctx) {
 
         ctx.fillStyle =  Camera.main.backgroundColor
-        ctx.fillRectangle(0, 0, Engine.canvas.width, Engine.canvas.height)
+        ctx.fillRect(0, 0, Engine.canvas.width, Engine.canvas.height)
 
         //Start Camera Mode
         ctx.save()
@@ -52,15 +52,15 @@ class Scene {
             }
         }  
 
+        ctx.restore()
+        //Stop Camera 
+        
+        
+        //UI Layer
         for (const gameObject of this.gameObjects.filter(go => go.layer == "UI")) {
             gameObject.draw(ctx)
         }
 
-
-        ctx.restore()
-        //Stop Camera 
-
-        //UI Layer
     }
 }
 

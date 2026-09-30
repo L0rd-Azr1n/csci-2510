@@ -27,6 +27,12 @@ class LaserController extends Component {
                 }
             }
         }
-
+        // let totalLasers = GameObject.findGameObjectsWithTag("laser")
+        // let laserCount = 0
+        // for (const laser of totalLasers) {
+        //      laserCount ++
+        // }
+        // console.log(laserCount)
+        // console.log(SceneManager.currentScene.gameObjects)
     }
 }

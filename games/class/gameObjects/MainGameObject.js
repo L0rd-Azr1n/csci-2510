@@ -1,8 +1,8 @@
 class MainGameObject extends GameObject {
     constructor() {
-        super("StarShip", [], "ships")
+        super("Main", [], "ships")
         this.addComponent(new UpdateComponent())
         this.addComponent(new Polygon(), {
-            fillStyle: "cyan", points:Assets.star})
+            fillStyle: "blue", points:Assets.star})
     }
 }

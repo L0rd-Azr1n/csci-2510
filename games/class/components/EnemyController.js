@@ -14,6 +14,6 @@ class EnemyController extends Component {
         if(this.gameObject.getComponent(Health).health <= 0)
             this.gameObject.destroy()
 
-        //console.log(GameObject.find("Enemy").health)
+        //console.log(GameObject.find("Enemy").getComponent(Health))
     }
 }
