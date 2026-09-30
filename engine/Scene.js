@@ -1,6 +1,13 @@
 class Scene {
     gameObjects = []
 
+    constructor() {
+        let cameraGameObject = new GameObject("MainCamera", ["MainCamera"])
+        cameraGameObject.addComponent(new Camera())
+
+        this.instantiate(cameraGameObject)
+    }
+
     instantiate(gameObject, position = new Vector2(0, 0), rotation = 0) {
         this.gameObjects.push(gameObject)
         gameObject.transform.position = position
@@ -29,9 +36,31 @@ class Scene {
     }
 
     draw(ctx) {
-        for (const gameObject of this.gameObjects) {
+
+        ctx.fillStyle =  Camera.main.backgroundColor
+        ctx.fillRectangle(0, 0, Engine.canvas.width, Engine.canvas.height)
+
+        //Start Camera Mode
+        ctx.save()
+        ctx.translate(Engine.canvas.width/2, Engine.canvas.height/2)
+        ctx.translate(-Camera.main.transform.position.x, -Camera.main.transform.position.y)
+
+
+        for (const layer of Engine.layers.filter(l => l != "UI")) {
+            for (const gameObject of this.gameObjects.filter(go => go.layer != "UI")) {
+                gameObject.draw(ctx)
+            }
+        }  
+
+        for (const gameObject of this.gameObjects.filter(go => go.layer == "UI")) {
             gameObject.draw(ctx)
         }
+
+
+        ctx.restore()
+        //Stop Camera 
+
+        //UI Layer
     }
 }
 

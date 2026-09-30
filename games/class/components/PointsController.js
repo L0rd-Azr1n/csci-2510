@@ -1,5 +1,9 @@
 class PointsController extends Component {
     update() {
-        this.GameObject.getComponenet(TextLabel).text = Globals.points + " points"
+        this.gameObject.getComponenet(TextLabel).text = Globals.points + " points"
+    }
+
+    updatePoints(delta) {
+        Globals.points += delta
     }
 }
