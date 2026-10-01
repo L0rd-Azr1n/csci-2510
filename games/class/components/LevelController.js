@@ -4,9 +4,9 @@ class LevelController extends Component {
     }
 
     update() {
-        let enemyGameObject = GameObject.find("Enemy")
+        let enemyGameObjects = GameObject.findGameObjectsWithTag("Enemy")
 
-        if(!enemyGameObject) {
+        if(!enemyGameObjects) {
             SceneManager.loadScene(Level02)
         }
     }
