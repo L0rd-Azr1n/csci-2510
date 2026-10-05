@@ -1,3 +1,2 @@
 class healthbar extends Component {
-    
 }

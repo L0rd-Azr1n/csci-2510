@@ -1,7 +1,7 @@
 class RandMoveOrbObject extends GameObject {
-   constructor(name, tags) {
-        super(name = "Jitter", tags)
+   constructor() {
+        super("Jitter", ["Blue", "Mage"])
         this.addComponent(new RandMove(), {speed: 100})
-        this.addComponent(new ParamController, {parentName:name, team:this.tags[0], orbClass:this.tags[1], })
+        this.addComponent(new ParamController, {team:this.tags[0], orbClass:this.tags[1]})
     }
 }

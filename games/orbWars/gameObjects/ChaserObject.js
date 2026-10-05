@@ -1,6 +1,6 @@
 class ChaserObject extends GameObject {
     constructor() {
-        super("Chaser")
+        super("Chaser", ["Red", "Warrior"], "Foreground")
         this.addComponent(new LocatePlayerComponent())
         this.addComponent(new Polygon(), {
             fillStyle:"red", points:Assets.circle,

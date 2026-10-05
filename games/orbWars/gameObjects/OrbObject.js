@@ -1,7 +1,7 @@
 class OrbObject extends GameObject {
     constructor() {
-        super("Player", [])
+        super("Player", [], "Foreground")
+        this.addComponent(new ParamController, {parentName:this.name, team:this.tags[0], orbClass:this.tags[1], })
         this.addComponent(new wasdMovementComponent())
-        this.addComponent(new ParamController, {parentName:name, team:this.tags[0], orbClass:this.tags[1], })
     }
 }
