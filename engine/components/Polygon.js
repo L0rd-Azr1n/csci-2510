@@ -10,9 +10,9 @@ class Polygon extends Component {
         ctx.save()
 
         //declare center, size and tilt
-        ctx.translate(this.transform.position.x, this.transform.position.y)
-        ctx.rotate(this.transform.rotation)
-        ctx.scale(this.transform.scale.x, this.transform.scale.y)
+        // ctx.translate(this.transform.position.x, this.transform.position.y)
+        // ctx.rotate(this.transform.rotation)
+        // ctx.scale(this.transform.scale.x, this.transform.scale.y)
 
         ctx.beginPath()
         for (const point of this.points) {

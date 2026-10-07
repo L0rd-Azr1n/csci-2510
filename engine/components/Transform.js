@@ -3,4 +3,25 @@ class Transform extends Component {
     scale = new Vector2(1,1)
     //radians*
     rotation = 0
+
+    parent
+
+    setParent(parentTransform) {
+        this.parent = parentTransform
+    }
+
+    //rotation uses Degrees
+    getLocalMatrix() {
+        let  matrix = new DOMMatrix()
+        matrix.translateSelf(this.position.x, this.position.y)
+        matrix.translateSelf(this.scale.x, this.scale.y)
+        matrix.rotateSelf(this.rotation * 180 / Math.PI)
+        return matrix
+    }
+
+    getWorldMatrix() {
+        if (!this.parent)
+            return this.getLocalMatrix()
+        return this.parent.getWorldMatrix().multiply(this.getLocalMatrix())
+    }
 }

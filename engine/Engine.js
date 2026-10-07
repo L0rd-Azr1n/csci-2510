@@ -13,6 +13,9 @@ class Engine {
 
         addEventListener("keydown", Input.keydown)
         addEventListener("keyup", Input.keyup)
+        
+        addEventListener("mouseDown", Input.mouseDown)
+        addEventListener("mouseUp", Input.mouseUp)
 
         SceneManager.nextScene = nextScene
 
@@ -31,6 +34,7 @@ class Engine {
         Engine.draw()
 
         Time.update()
+        Input.update()
 
         requestAnimationFrame(Engine.gameLoop)
     }

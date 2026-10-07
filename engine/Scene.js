@@ -1,11 +1,14 @@
 class Scene {
     gameObjects = []
 
-    constructor() {
+    constructor(backgroundColor) {
         let cameraGameObject = new GameObject("MainCamera", ["MainCamera"])
         cameraGameObject.addComponent(new Camera())
-
         this.instantiate(cameraGameObject)
+
+        if(backgroundColor) {
+            cameraGameObject.getComponent(Camera).backgroundColor = backgroundColor
+        }
     }
 
     instantiate(gameObject, position = new Vector2(0, 0), rotation = 0) {
