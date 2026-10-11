@@ -50,7 +50,7 @@ class Scene {
 
 
         for (const layer of Engine.layers.filter(l => l != "UI")) {
-            for (const gameObject of this.gameObjects.filter(go => go.layer != "UI")) {
+            for (const gameObject of this.gameObjects.filter(go => go.layer == layer)) {
                 gameObject.draw(ctx)
             }
         }  

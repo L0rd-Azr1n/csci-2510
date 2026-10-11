@@ -5,7 +5,7 @@ class LevelController extends Component {
 
     update() {
         if (Input.keysDown.includes("Enter"))
-            SceneManager.loadScene(LevelSelect, false)
+            SceneManager.loadScene(TestScene, false)
         //console.log(Input.keysDown)
     }
 }
