@@ -1,6 +1,6 @@
 class Level01 extends Scene {
     constructor() {
-        super()
+        super("Black")
         // this.instantiate(new MainGameObject(), new Vector2(window.innerWidth/2, window.innerHeight/2))
         this.instantiate(new EnemyGameObject(), new Vector2(25, 150), Math.PI)
         // this.instantiate(new PointsGameObject(), new Vector2(0, 20))

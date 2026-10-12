@@ -6,6 +6,10 @@ class Input {
     static mouseButtonsDown = []
     static mouseButtonsDownThisFrame = []
     static mouseButtonsUpThisFrame = []
+    
+    static mousePosition
+    static mousePositionLastFrame
+    static mouseDelta
 
     static mouseDown(event) {
         if (!Input.mouseButtonsDown.includes(event.button)) {
@@ -20,6 +24,15 @@ class Input {
         Input.mouseButtonsUpThisFrame.push(event.code)
     }
     
+    static mouseMove(event) {
+        if (Input.mousePosition) {
+            Input.mousePositionLastFrame = Input.mousePosition
+        }
+        Input.mousePosition = new Vector2(event.clientX, event.clientY)
+        if (Input.mousePositionLastFrame) {
+            Input.mouseDelta = Input.mousePosition.minus(Input.mousePositionLastFrame)
+        }
+    }
     static keydown(event) {
         if (!Input.keysDown.includes(event.code)) {
             Input.keysDown.push(event.code)

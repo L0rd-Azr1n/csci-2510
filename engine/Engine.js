@@ -16,6 +16,7 @@ class Engine {
         
         addEventListener("mouseDown", Input.mouseDown)
         addEventListener("mouseUp", Input.mouseUp)
+        addEventListener("mouseMove", Input.mouseMove)
 
         SceneManager.nextScene = nextScene
 
