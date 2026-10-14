@@ -32,6 +32,7 @@
     <script src="../../engine/components/Polygon.js"></script>
     <script src="../../engine/components/TextLabel.js"></script>
     <script src="../../engine/components/Camera.js"></script>
+    <script src="../../engine/components/Collision.js"></script>
 
 
     <script src="Assets.js"></script>
@@ -73,6 +74,23 @@
     <script>
 
         Engine.start(MenuScene, Settings)
+
+
+        //Tests
+        let gameObject = new GameObject()
+        gameObject.addComponent(new Polygon(), {points: [
+            new Vector2(0, -1),
+            new Vector2(1, 1),
+            new Vector2(-1, -1),
+        ]})
+        console.assert(Collisions.isCollisionPointPolygon(new Vector2(0, 0), gameObject))
+        console.assert(Collisions.isCollisionPointPolygon(new Vector2(0, 0.95), gameObject))
+
+
+        console.assert(!Collisions.isCollisionPointPolygon(new Vector2(1000, 1000), gameObject))
+        console.assert(!Collisions.isCollisionPointPolygon(new Vector2(0, -1.1), gameObject))
+        console.assert(!Collisions.isCollisionPointPolygon(new Vector2(0, 1.1), gameObject))
+        console.assert(!Collisions.isCollisionPointPolygon(new Vector2(0, 1.0001), gameObject))
         
     </script>
 

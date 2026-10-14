@@ -6,6 +6,6 @@ class WeaponObject extends GameObject {
         this.transform.rotation = (Math.PI/4)
         this.transform.scale = new Vector2(2.5, 2.5)
         this.addComponent(new weaponController())
-        this.addComponent(new Damage())
+        this.addComponent(new Damage(), {type:this.tags[0]})
     }
 } 

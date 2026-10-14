@@ -23,4 +23,12 @@ class Vector2 {
         return Math.sqrt(this.x ** 2 + this.y ** 2)
     }
 
+    dot(other) {
+        return this.x * other.x + this.y * other.y
+    }
+
+    orthogonal() {
+        return new Vector2(this.y, -this.x)
+    }
+
 }
