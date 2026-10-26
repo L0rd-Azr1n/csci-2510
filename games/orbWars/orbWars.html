@@ -32,7 +32,8 @@
     <script src="../../engine/components/Polygon.js"></script>
     <script src="../../engine/components/TextLabel.js"></script>
     <script src="../../engine/components/Camera.js"></script>
-    <script src="../../engine/components/Collision.js"></script>
+    <script src="../../engine/components/Collisions.js"></script>
+    <script src="../../engine/components/Collider.js"></script>
 
 
     <script src="Assets.js"></script>
@@ -68,7 +69,6 @@
     <script src="components/weaponController.js"></script>
     <script src="components/orbColors.js"></script>
     <script src="components/Health.js"></script>
-    <script src="components/Healthbar.js"></script>
     <script src="components/Damage.js"></script>
     
     
@@ -91,6 +91,7 @@
             new Vector2(1, 1),
             new Vector2(-1, 1),
         ]})
+
         console.assert(Collisions.isCollisionPointPolygon(new Vector2(0, 0), gameObject))
         console.assert(Collisions.isCollisionPointPolygon(new Vector2(0, 0.95), gameObject))
 
