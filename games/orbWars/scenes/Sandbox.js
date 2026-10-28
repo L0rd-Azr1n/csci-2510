@@ -1,5 +1,5 @@
 class Sandbox extends Scene {
     constructor() {
-        super()
+        super("Beige")
     }
 }

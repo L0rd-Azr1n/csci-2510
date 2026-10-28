@@ -45,12 +45,12 @@ class Collisions {
                 gameObject2.transform.getWorldMatrix().transformPoint(point).y
             ))
         }
-        //find axex for projection
+        //find axes for projection
         let axes = []
         for (let i= 0; i < worldSpacePoints.length; i++) {
             let point1 = worldSpacePoints[i]
             let point2 = worldSpacePoints[(i+1) % worldSpacePoints.length]
-            let edge = point2.minus(point1)
+            let edge = point2.minus(point1).normalized()
             let axis = edge.orthogonal()
             axes.push(axis)
         }
@@ -58,11 +58,12 @@ class Collisions {
         for (let i= 0; i < worldSpacePoints2.length; i++) {
             let point1 = worldSpacePoints2[i]
             let point2 = worldSpacePoints2[(i+1) % worldSpacePoints2.length]
-            let edge = point2.minus(point1)
+            let edge = point2.minus(point1).normalized()
             let axis = edge.orthogonal()
             axes.push(axis)
         }
 
+        let minimumTransformVector = new Vector2(Number.MAX_VALUE, Number.MAX_VALUE)
         for(const axis of axes) {
 
             //check for overlap
@@ -72,7 +73,18 @@ class Collisions {
             if(Math.max(...polygonProjections2) < Math.min(...polygonProjections) ||
             Math.min(...polygonProjections2) > Math.max(...polygonProjections))
                 return false
+            // else...the shadows overlapped
+            const minOverlap = Math.min(
+                    Math.max(...polygonProjections2) - Math.min(...polygonProjections),
+                    Math.max(...polygonProjections) - Math.min(...polygonProjections2)
+            )
+            if (minOverlap < minimumTransformVector.magnitude) {
+                minimumTransformVector = axis.normalized().scaled(minOverlap)
+            }
         }
-        return true
+        if (gameObject.transform.position.minus(gameObject2.transform.position).dot(minimumTransformVector) > 0) {
+            return minimumTransformVector
+        }
+        return minimumTransformVector.scaled(-1)
     }
 }

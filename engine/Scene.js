@@ -30,7 +30,7 @@ class Scene {
         // Collisions
         const collidable = GameObject.findGameObjectsByType(Collider)
 
-
+        // mouse over and collisions
         if (Input.mousePosition) {
             let matrix = new DOMMatrix()
             matrix.translateSelf(Engine.canvas.width/2, Engine.canvas.height/2)
@@ -47,14 +47,38 @@ class Scene {
             }
         }
 
+        //Handle Polygon Collisions
+        const physicalCollisions = []
         for (let i = 0; i < collidable.length; i++) {
             for(let j = i + 1; collidable.length; i++) {
-                if (Collisions.isCollisionPolygonPolygon(collidable[i], collidable[j])) {
-                    collidable[i].braodcastMessage("onCollisionStay", [collidable[j]])
-                    collidable[j].braodcastMessage("onCollisionStay", [collidable[i]])
+                const minimumTransformVector = Collisions.isCollisionPolygonPolygon(collidable[i], collidable[j]) 
+                if (minimumTransformVector) {
+                    collidable[i].braodcastMessage("onCollisionStay", [collidable[j], minimumTransformVector])
+                    collidable[j].braodcastMessage("onCollisionStay", [collidable[i]], minimumTransformVector.scaled(-1))
+
+                    if(collidable[i].getComponent(RigidBody) || collidable[j].getComponent(RigidBody)) {
+                        physicalCollisions.push({one:collidable[i], two:collidable[j], minimumTransformVector})
+                    }
                 }
             }
         }
+
+
+        // Handle physics
+        for (const physicalCollision of physicalCollisions) {
+            if (physicalCollision.one.getComponent(RigidBody)) {
+                physicalCollision.one.transform.position.plusEquals(physicalCollision.minimumTransformVector)
+            }
+
+            if (physicalCollision.two.getComponent(RigidBody)) {
+                physicalCollision.two.transform.position.plusEquals(physicalCollision.minimumTransformVector.scaled(-1))
+            }
+
+        }
+
+
+
+
 
 
         for (const gameObject of this.gameObjects) {
