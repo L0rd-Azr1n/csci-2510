@@ -41,7 +41,7 @@ class Scene {
             // console.log(worldPosition)
             
             for(const gameObject of collidable) {
-                if(Collisions.isCollisionPointPolygon(worldposition, gameObject)) {
+                if(Collisions.isCollisionPointPolygon(collidable.layer == "UI" ? Input.mousePosition: worldposition, gameObject)) {
                     gameObject.braodcastMessage("onMouseOver", [])
                 }
             }
