@@ -8,7 +8,7 @@ class OrbMoveController extends Component {
         // Move to standing distance
         // AttackLoop
         let  myTeam = this.gameObject.tags[0]
-        let enemyTeam = "Error"
+        let enemyTeam
         let targetEnemy
         let myPosition = this.gameObject.transform.position
 
@@ -17,18 +17,20 @@ class OrbMoveController extends Component {
         } else {
             enemyTeam = GameObject.findGameObjectsWithTag("Red")
         }
-        if (!enemyTeam) {
-            // Idle behavior
-        } else {
-            let minDistance = enemyTeam[0].transform.position
+
+        if (enemyTeam) {
+            let minDistance = Number.MAX_VALUE
+            let distance
+            let enemyPosition
 
             for (const enemy of enemyTeam) {
-                let enemyPosition = enemy.transform.position
-                let distance = myPosition.minus(enemyPosition).magnitude
+                enemyPosition = enemy.transform.position
+                distance = myPosition.minus(enemyPosition).magnitude
                 if (distance < minDistance) {
-                    targetEnemy = enemy
+                    this.targetEnemy = enemy
                 }
             }
+
             if (minDistance <= this.gameObject.standingRange) {
                 // this.gameObject.attack()
                 console.log("In range")
@@ -40,5 +42,6 @@ class OrbMoveController extends Component {
                 console.log("Full Move")
             }
         }
+        
     }
 }
