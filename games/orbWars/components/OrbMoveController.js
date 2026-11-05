@@ -34,12 +34,24 @@ class OrbMoveController extends Component {
             if (minDistance <= this.gameObject.standingRange) {
                 // this.gameObject.attack()
                 console.log("In range")
-            } else if (minDistance - this.gameObject.standingRange < 0) {
-                // move the difference in the direction of targetEnemy
-                console.log("Partial move")
             } else {
                 //move in the direction of targetEnemy
-                console.log("Full Move")
+                console.log("Move")
+                if (myPosition.x > (enemyPosition.x + this.gameObject.standingRange)) {
+                    this.transform.position.x - Time.deltaTime * this.gameObject.speed
+                }
+                
+                if (myPosition.x < (enemyPosition.x - this.gameObject.standingRange)) {
+                    this.transform.position.x + Time.deltaTime * this.gameObject.speed
+                }
+
+                if (myPosition.y > (enemyPosition.y + this.gameObject.standingRange)) {
+                    this.transform.position.y - Time.deltaTime * this.gameObject.speed
+                }
+
+                if (myPosition.y < (enemyPosition.y - this.gameObject.standingRange)) {
+                    this.transform.position.y + Time.deltaTime * this.gameObject.speed
+                }
             }
         }
         
