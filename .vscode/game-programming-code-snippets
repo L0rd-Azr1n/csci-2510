@@ -1,0 +1,15 @@
+{
+    "Game Object Polygon": {
+        "scope": "javascript",
+        "prefix": "game-Object-Polygon",
+        "body": [
+            "class $0GameObject extends gameObject {",
+            "   constructor() {",
+            "       this.addComponent(new Polygon(), {fillstyle)",
+            "       this.addComponent(new $0Controller())",
+            "       this.transform.scale =  new Vector2(1, 1)",
+            "   }",
+            "}"
+        ]
+    }
+}

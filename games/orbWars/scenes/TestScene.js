@@ -3,7 +3,12 @@ class TestScene extends Scene {
     super()
     this.instantiate(new SupplyUIObject(), new Vector2(10, 20))
 
-    this.instantiate(new OrbObject("Player", ["Blue", "Warrior"]), new Vector2(0,0))
+    let player = this.instantiate(new OrbObject("Player", ["Blue", "Warrior"]), new Vector2(0,0))
+    player.addComponent(new wasdMovementComponent())
+    player.addComponent(new OrbMoveController())
+
+    let testEnemy = this.instantiate(new OrbObject("Enemy", ["Red", "Warrior"]), new Vector2(50, 50))
+    testEnemy.addComponent(new OrbMoveController())
 
     //test object
     this.instantiate(new StaticCirle(), new Vector2(-200, -200))

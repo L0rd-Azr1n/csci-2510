@@ -1,5 +1,4 @@
 class weaponController extends Component {
-    dmg = 1
 
     swing() {
         this.transform.rotate(-Math.PI/4)
