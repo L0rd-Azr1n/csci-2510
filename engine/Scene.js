@@ -68,8 +68,8 @@ class Scene {
                         collidable[j].braodcastMessage("onCollisionStay", [collidable[i]], minimumTransformVector.scaled(-1))
                         physicalCollisions.push({one:collidable[i], two:collidable[j], minimumTransformVector})
                     } else {
-                        collidable[i].braodcastMessage("onCollisionStay", [collidable[j], minimumTransformVector])
-                        collidable[j].braodcastMessage("onCollisionStay", [collidable[i]], minimumTransformVector.scaled(-1))
+                        collidable[i].braodcastMessage("onTriggerStay", [collidable[j], minimumTransformVector])
+                        collidable[j].braodcastMessage("onTriggerStay", [collidable[i]], minimumTransformVector.scaled(-1))
                     }
                 }
             }

@@ -1,7 +1,7 @@
 class OrbMoveController extends Component {
-    static standingRange = 250
+    speed = this.gameObject.orbClass[2]
 
-    update() {
+    fixedUpdate() {
         //check if there is an enemy in range
         // if yes AttackLoop
         // else Find nearest Orb w/ team different to mine
@@ -25,7 +25,7 @@ class OrbMoveController extends Component {
 
             for (const enemy of enemyTeam) {
                 enemyPosition = enemy.transform.position
-                distance = myPosition.minus(enemyPosition).magnitude
+                distance = enemyPosition.minus(myPosition).magnitude
                 if (distance < minDistance) {
                     this.targetEnemy = enemy
                 }
@@ -37,21 +37,13 @@ class OrbMoveController extends Component {
             } else {
                 //move in the direction of targetEnemy
                 console.log("Move")
-                if (myPosition.x > (enemyPosition.x + this.gameObject.standingRange)) {
-                    this.transform.position.x - Time.deltaTime * this.gameObject.speed
-                }
+                let moveAngle = Math.atan2(y, x)
+                let moveX = Math.cos(moveAngle) 
+                let moveY = Math.sin(moveAngle)
                 
-                if (myPosition.x < (enemyPosition.x - this.gameObject.standingRange)) {
-                    this.transform.position.x + Time.deltaTime * this.gameObject.speed
-                }
-
-                if (myPosition.y > (enemyPosition.y + this.gameObject.standingRange)) {
-                    this.transform.position.y - Time.deltaTime * this.gameObject.speed
-                }
-
-                if (myPosition.y < (enemyPosition.y - this.gameObject.standingRange)) {
-                    this.transform.position.y + Time.deltaTime * this.gameObject.speed
-                }
+                myPosition.x += moveX * Time.deltaTime * this.speed
+                myPosition.y += moveY * Time.deltaTime * this.speed
+                
             }
         }
         

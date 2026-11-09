@@ -1,12 +1,18 @@
 class LevelController extends Component {
+    currentLevel
     targetLevel
+    levelComplete = false
     
     start() {
-        SceneManager.loadScene(MenuScene, false)
+        SceneManager.loadScene(this.currentLevel, false)
+        this.didStart = true
+
+        console.log(this.currentLevel)
+        console.log(this.targetLevel)
     }
 
     update() {
-        if (SceneManager.currentScene == MenuScene && Input.keysDown.includes("Enter"))
-            SceneManager.loadScene(LevelSelect, false)
+        if (this.levelComplete)
+            SceneManager.loadScene(this.targetLevel, false)
     }
 }

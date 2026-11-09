@@ -40,6 +40,7 @@
     <script src="Assets.js"></script>
     <script src="Globals.js"></script>
     <script src="Settings.js"></script>
+    <script src="OrbClass.js"></script>
     
     
     <script src="scenes/TestScene.js"></script>
@@ -49,6 +50,8 @@
     <script src="scenes/Level01.js"></script>
     <script src="scenes/Level02.js"></script>
     <script src="scenes/Level03.js"></script>
+    <script src="scenes/Level04.js"></script>
+    <script src="scenes/Level05.js"></script>
 
     <script src="gameObjects/ChaserObject.js"></script>
     <script src="gameObjects/LevelControllerGameObject.js"></script>
@@ -86,6 +89,7 @@
             new Vector2(1, 1),
             new Vector2(-1, 1),
         ]})
+        gameObject.addComponent(new Collider())
 
         let two = new GameObject()
         two.addComponent(new Polygon(), {points: [
@@ -93,9 +97,10 @@
             new Vector2(1, 1),
             new Vector2(-1, 1),
         ]})
+        two.addComponent(new Collider())
 
-        console.assert(Collisions.isCollisionPointPolygon(new Vector2(0, 0), gameObject))
-        console.assert(Collisions.isCollisionPointPolygon(new Vector2(0, 0.95), gameObject))
+        console.assert(!Collisions.isCollisionPointPolygon(new Vector2(0, 0), gameObject))
+        console.assert(!Collisions.isCollisionPointPolygon(new Vector2(0, 0.95), gameObject))
 
 
         console.assert(!Collisions.isCollisionPointPolygon(new Vector2(1000, 1000), gameObject))

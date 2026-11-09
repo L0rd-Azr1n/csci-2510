@@ -1,7 +1,7 @@
 class Health extends Component {
-    maxHealth = 100
-    health = 100
-    naturalRegen = 0.5
+    maxHealth = this.gameObject.orbClass[0]
+    currentHealth = this.maxHealth
+    naturalRegen = this.gameObject.orbClass[5]
 
     start() {
         this.gameObject.addComponent(new Polygon(), {points:Assets.rectangle, fillStyle:"Red"})
@@ -10,12 +10,12 @@ class Health extends Component {
     }
 
     update() {
-        if (this.health < this.maxHealth && this.health > 0) {
-            let x = this.maxHealth -= this.health
+        if (this.currentHealth < this.maxHealth && this.currentHealth > 0) {
+            let x = this.maxHealth -= this.currentHealth
             if (x <= this.naturalRegen) {
-                this.health += x
+                this.currentHealth += x
             } else
-                this.health += this.naturalRegen
+                this.currentHealth += this.naturalRegen
         } else {
             this.gameObject.destroy()
         }
