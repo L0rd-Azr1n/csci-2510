@@ -26,6 +26,10 @@ class Scene {
 
     update() {
 
+        for (const gameObject of this.gameObjects) {
+            gameObject.braodcastMessage("fixedUpdate")
+        }
+
 
         // Collisions
         const collidable = GameObject.findGameObjectsByType(Collider)
@@ -41,7 +45,7 @@ class Scene {
             // console.log(worldPosition)
             
             for(const gameObject of collidable) {
-                if(Collisions.isCollisionPointPolygon(worldposition, gameObject)) {
+                if(Collisions.isCollisionPointPolygon(collidable.layer == "UI" ? Input.mousePosition: worldposition, gameObject)) {
                     gameObject.braodcastMessage("onMouseOver", [])
                 }
             }
@@ -51,13 +55,21 @@ class Scene {
         const physicalCollisions = []
         for (let i = 0; i < collidable.length; i++) {
             for(let j = i + 1; collidable.length; i++) {
+                const one = collidable[i]
+                const two = collidable[j]
+                if(!one.getComponent(RigidBody) && !two.getComponent(RigidBody))
+                    continue
+
                 const minimumTransformVector = Collisions.isCollisionPolygonPolygon(collidable[i], collidable[j]) 
                 if (minimumTransformVector) {
-                    collidable[i].braodcastMessage("onCollisionStay", [collidable[j], minimumTransformVector])
-                    collidable[j].braodcastMessage("onCollisionStay", [collidable[i]], minimumTransformVector.scaled(-1))
-
-                    if(collidable[i].getComponent(RigidBody) || collidable[j].getComponent(RigidBody)) {
+                   
+                    if (!one.getComponent(Collider).isTrigger && !two.getComponent(Collider).isTrigger) {
+                        collidable[i].braodcastMessage("onCollisionStay", [collidable[j], minimumTransformVector])  
+                        collidable[j].braodcastMessage("onCollisionStay", [collidable[i]], minimumTransformVector.scaled(-1))
                         physicalCollisions.push({one:collidable[i], two:collidable[j], minimumTransformVector})
+                    } else {
+                        collidable[i].braodcastMessage("onCollisionStay", [collidable[j], minimumTransformVector])
+                        collidable[j].braodcastMessage("onCollisionStay", [collidable[i]], minimumTransformVector.scaled(-1))
                     }
                 }
             }

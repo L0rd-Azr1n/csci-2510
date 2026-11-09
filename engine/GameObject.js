@@ -1,12 +1,11 @@
 class GameObject {
     components = []
     
+    markForDestroy = false
+
     name
     tags = []
-
     layer = "default"
-    
-    markForDestroy = false
 
     get transform() {
         return this.components[0]

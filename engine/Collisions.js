@@ -7,12 +7,13 @@ class Collisions {
                 new Vector2(
                 gameObject.transform.getWorldMatrix().transformPoint(point).x,
                 gameObject.transform.getWorldMatrix().transformPoint(point).y
-            ))
+                )
+            )
         }
         //find axex for projection
         for (let i= 0; i < worldSpacePoints.length; i++) {
             let point1 = worldSpacePoints[i]
-            let point2 = worldSpacePoints[(i+1) % worldSpacePoints.length]
+            let point2 = worldSpacePoints[(i + 1) % worldSpacePoints.length]
             let edge = point2.minus(point1)
             let axis = edge.orthogonal()
 
@@ -49,7 +50,7 @@ class Collisions {
         let axes = []
         for (let i= 0; i < worldSpacePoints.length; i++) {
             let point1 = worldSpacePoints[i]
-            let point2 = worldSpacePoints[(i+1) % worldSpacePoints.length]
+            let point2 = worldSpacePoints[(i + 1) % worldSpacePoints.length]
             let edge = point2.minus(point1).normalized()
             let axis = edge.orthogonal()
             axes.push(axis)
