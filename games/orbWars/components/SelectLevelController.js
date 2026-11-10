@@ -1,12 +1,9 @@
-class LevelController extends Component {
-    currentLevel
+class SelectLevelController extends Component{
+    currentLevel = SceneManager.currentScene
     targetLevel
     levelComplete = false
     
     start() {
-        SceneManager.loadScene(this.currentLevel, false)
-        this.didStart = true
-
         console.log(this.currentLevel)
         console.log(this.targetLevel)
     }
