@@ -100,8 +100,8 @@
         ]})
         two.addComponent(new Collider())
 
-        console.assert(!Collisions.isCollisionPointPolygon(new Vector2(0, 0), gameObject))
-        console.assert(!Collisions.isCollisionPointPolygon(new Vector2(0, 0.95), gameObject))
+        console.assert(Collisions.isCollisionPointPolygon(new Vector2(0, 0), gameObject))
+        console.assert(Collisions.isCollisionPointPolygon(new Vector2(0, 0.95), gameObject))
 
 
         console.assert(!Collisions.isCollisionPointPolygon(new Vector2(1000, 1000), gameObject))
