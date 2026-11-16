@@ -1,6 +1,6 @@
 class OrbObject extends GameObject {
-    constructor(name, tags) {
-        super(name, tags, "Foreground")
+    constructor() {
+        super("Orb", [], "Foreground")
         this.addComponent(new ParamController, {team:this.tags[0], orbClass:this.tags[1], })
         this.addComponent(new Collider())
         this.addComponent(new RigidBody())

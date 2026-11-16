@@ -4,7 +4,6 @@ class TitleLevelController extends Component {
     levelComplete = false
     
     start() {
-        console.log(this.currentLevel)
         console.log(this.targetLevel)
     }
 

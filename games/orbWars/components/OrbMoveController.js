@@ -37,7 +37,7 @@ class OrbMoveController extends Component {
             } else {
                 //move in the direction of targetEnemy
                 console.log("Move")
-                let moveAngle = Math.atan2(y, x)
+                let moveAngle = Math.atan2(enemyPosition.minus(myPosition).y, enemyPosition.minus(myPosition).x)
                 let moveX = Math.cos(moveAngle) 
                 let moveY = Math.sin(moveAngle)
                 

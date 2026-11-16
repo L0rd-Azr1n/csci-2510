@@ -5,9 +5,12 @@ class Engine {
     static layers = ["default", "UI"]
     static aspectRatio
     static cameraWidthInWorldSpace
+    static collisionLayers = []
 
     static letterBoxingWidth = 0
     static letterBoxingHeight = 0
+
+    static lastTimeStep
 
 
     static start(nextScene, settings) {
@@ -30,13 +33,26 @@ class Engine {
             Engine.layers = settings.layers
             Engine.aspectRatio = settings.aspectRatio
             Engine.cameraWidthInWorldSpace = settings.cameraWidthInWorldSpace
+            if (settings.collisionLayers) {
+                Engine.collisionLayers = settings.collisionLayers
+            }     
         }
 
 
         requestAnimationFrame(Engine.gameLoop)
     }
 
-    static gameLoop() {
+    static gameLoop(timestamp) {
+        if(!Engine.lastTimeStep) {
+            Engine.lastTimeStep = timestamp
+
+        } else {
+            const diffInMilliseconds = timestamp - Engine.lastTimeStep
+            const diffinSeconds = diffInMilliseconds / 1000
+            Time.deltaTime = Math.min(diffinSeconds, 1/60)
+            Engine.lastTimeStep = timestamp
+        }
+
         SceneManager.update()
         
         Engine.update()
