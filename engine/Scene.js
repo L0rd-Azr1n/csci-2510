@@ -58,7 +58,7 @@ class Scene {
         //Handle Polygon Collisions
         const physicalCollisions = []
         for (let i = 0; i < collidable.length; i++) {
-            for (let j = i + 1; collidable.length; i++) {
+            for (let j = i + 1; j < collidable.length; j++) {
                 const one = collidable[i]
                 const two = collidable[j]
                 if (!one.getComponent(RigidBody) && !two.getComponent(RigidBody))
