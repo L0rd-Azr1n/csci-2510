@@ -1,6 +1,6 @@
 class Settings {
     static layers = ["default","Background", "Orbs", "Equipment","UI",]
-    static aspectRatio = 9/16
-    static cameraWidthInWorldSpace = 70
+    static aspectRatio = 16/9
+    static cameraWidthInWorldSpace = 0
     static collisionLayers = [ ["default", "default"],]
 }

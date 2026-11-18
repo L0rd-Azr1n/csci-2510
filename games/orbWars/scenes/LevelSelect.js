@@ -14,5 +14,11 @@ class LevelSelect extends Scene {
         level04.targetLevel = Level04
         let level05 = this.instantiate(new LevelIcon(), new Vector2(600, 200))
         level05.targetLevel = Level05
+
+        const uiButton = this.instantiate(new UIButton())
+        uiButton.transform.anchormin = new Vector2(.5, .5)
+        uiButton.transform.anchorMax = new Vector2(.5, .5)
+        uiButton.transform.offsetUpperLeft = new Vector2(-50, -50)
+        uiButton.transform.offsetLowerRight = new Vector2(50, 50)
     }
 }
